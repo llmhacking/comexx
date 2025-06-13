@@ -18,7 +18,7 @@ def write_networkx_to_json(graph, filename):
     """Convert a networkx graph to a json object"""
     graph_json = json_graph.node_link_data(graph)
     if not os.getenv("GITHUB_ACTIONS"):
-        with open(filename, "w") as f:
+        with open(filename, "w", encoding="utf-8") as f:
             json.dump(graph_json, f)
     return graph_json
 
@@ -33,7 +33,8 @@ def write_to_dot(og_graph, filename, output_png=False):
         for node in graph.nodes:
             if 'label' in graph.nodes[node]:
                 graph.nodes[node]['label'] = re.escape(graph.nodes[node]['label'])
-        nx.nx_pydot.write_dot(graph, filename)
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(to_dot(graph).to_string())
         if output_png:
             check_call(
                 ["dot", "-Tpng", filename, "-o", filename.rsplit(".", 1)[0] + ".png"]

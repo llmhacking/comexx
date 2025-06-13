@@ -99,7 +99,7 @@ def main(
 
     try:
         if code_file:
-            file_handle = open(code_file, "r")
+            file_handle = open(code_file, "r", encoding="utf-8")
             src_code = file_handle.read()
             file_handle.close()
             CombinedDriver(src_language=lang, src_code=src_code, output_file="output.json",
@@ -112,7 +112,9 @@ def main(
     except (
             Exception
     ) as e:
+        import traceback
         try:
+            logger.error(traceback.format_exc())
             logger.error(e.msg)
         except AttributeError:
             logger.error(e)

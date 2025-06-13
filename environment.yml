@@ -45,5 +45,9 @@ dependencies:
   - zstd=1.4.5=h41d2c2f_0
   - pip:
     - networkx==2.6.3
-    - tree-sitter==0.20.0
+    - tree-sitter==0.24.0
+    - tree-sitter-c==0.23.4
+    - tree-sitter-cpp==0.23.4
+    - tree-sitter-java==0.23.5
+    - tree-sitter-c-sharp==0.23.1
 prefix: /Users/debeshee/opt/anaconda3/envs/codeviews

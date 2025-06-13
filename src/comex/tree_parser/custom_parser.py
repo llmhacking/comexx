@@ -57,7 +57,7 @@ class CustomParser:
 
     def parse(self):
         parser = Parser()  # tree-sitter parser
-        parser.set_language(self.language_map[self.src_language])
+        parser.language = self.language_map[self.src_language]
         tree = parser.parse(bytes(self.src_code, "utf8"))
         self.root_node = tree.root_node
         # First few id values are reserved for special nodes such as start and end node

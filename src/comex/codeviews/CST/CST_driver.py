@@ -41,7 +41,7 @@ class CSTGraph:
         label = str(root_node.start_point[0]) + "_" + root_node.type
         CST.add_node(
             current_node_id,
-            label=label,
+            label=f'"{label}"',
             shape="box",
             style="rounded, filled",
             fillcolor="#BFE6D3",

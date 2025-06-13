@@ -30,7 +30,7 @@ class ASTGraph:
             AST.add_node(
                 current_node_id,
                 node_type=root_node.type,
-                label=label,
+                label=f'"{label}"',
                 shape="box",
                 style="rounded, filled",
                 fillcolor="#BFE6D3",
